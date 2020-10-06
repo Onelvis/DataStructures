@@ -5,11 +5,11 @@ namespace DS
     {
         T[] stack;
 
-        int index = 0;
+        private int index = 0;
 
-        public StackIterator(Stack<T> recievedStack)
+        public StackIterator(T[] ts)
         {
-            stack = recievedStack.values;
+            stack = ts;
         }
         public T GetNext()
         {

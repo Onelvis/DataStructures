@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DS
 {
     public class Stack<T> : IIterable<T>
     {
-        int size = 20;
-
-        public T[] values;
+        private int size { get; set; }
+        private T[] values { get; set; }
         private int top { get; set; }
+
         public IIterator<T> GetIterator()
         {
-            return new StackIterator<T>(this);
+            return new StackIterator<T>(values);
         }
         public Stack(int stackSize)
         {
