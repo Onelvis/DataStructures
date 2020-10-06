@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
 
 namespace DS
 {
@@ -13,7 +10,7 @@ namespace DS
 
         public IIterator<T> GetIterator()
         {
-            return new StackIterator<T>(values);
+            return new StackIterator<T>(values, top);
         }
         public Stack(int stackSize)
         {
@@ -44,7 +41,6 @@ namespace DS
         {
             if (top > -1)
             {
-                
                 T value = values[top];
                 values[top--] = default(T);
                 return value;

@@ -1,15 +1,17 @@
-﻿using System;
-namespace DS
+﻿namespace DS
 {
     public class StackIterator<T> : IIterator<T>
     {
-        T[] stack;
+        private T[] stack;
+
+        private int top { get; set; }
 
         private int index = 0;
 
-        public StackIterator(T[] ts)
+        public StackIterator(T[] values, int top)
         {
-            stack = ts;
+            this.stack = values;
+            this.top = top;
         }
         public T GetNext()
         {
@@ -18,7 +20,7 @@ namespace DS
 
         public bool HasMore()
         {
-            if (index > stack.Length - 1)
+            if (index > top)
             {
                 return false;
             }

@@ -13,6 +13,7 @@ namespace DS
             stack.Push(4);
             stack.Push(5);
             stack.Pop();
+            stack.Push(6);
             var iterator = stack.GetIterator();
 
             while (iterator.HasMore())
