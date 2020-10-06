@@ -9,7 +9,7 @@ namespace DS
         int size = 20;
 
         public T[] values;
-        public int top { get; set; }
+        private int top { get; set; }
         public IIterator<T> GetIterator()
         {
             return new StackIterator<T>(this);
@@ -45,8 +45,7 @@ namespace DS
             {
                 
                 T value = values[top];
-                values[top] = default(T);
-                top--;
+                values[top--] = default(T);
                 return value;
             }
             else
