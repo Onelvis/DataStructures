@@ -4,8 +4,9 @@ using System.Text;
 
 namespace DS
 {
-    class DoublyLinkedList
+    public interface IIterator<T>
     {
-
+        T GetNext();
+        bool HasMore();
     }
 }

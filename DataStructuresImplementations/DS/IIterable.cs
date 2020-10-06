@@ -4,8 +4,8 @@ using System.Text;
 
 namespace DS
 {
-    class DoublyLinkedList
+    public interface IIterable<T>
     {
-
+        IIterator<T> GetIterator();
     }
 }
