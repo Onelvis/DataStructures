@@ -4,7 +4,11 @@ using System.Text;
 
 namespace DS
 {
-    class LinkedList
+    class LinkedList<T> : IIterable<T>
     {
+        public IIterator<T> GetIterator()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

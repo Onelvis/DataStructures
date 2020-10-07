@@ -4,7 +4,11 @@ using System.Text;
 
 namespace DS
 {
-    class Deque
+    class Deque<T> : IIterable<T>
     {
+        public IIterator<T> GetIterator()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

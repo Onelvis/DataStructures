@@ -4,7 +4,11 @@ using System.Text;
 
 namespace DS
 {
-    class ArrayList
+    class ArrayList<T> : IIterable<T>
     {
+        public IIterator<T> GetIterator()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

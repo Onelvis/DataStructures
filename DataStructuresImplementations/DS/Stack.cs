@@ -12,14 +12,17 @@ namespace DS
         {
             return new StackIterator<T>(values, top);
         }
+
         public Stack(int stackSize)
         {
             size = stackSize;
             values = new T[size];
             top = -1;
         }
+
         public Stack()
         {
+            size = 16;
             values = new T[size];
             top = -1;
         }
@@ -48,8 +51,42 @@ namespace DS
             else
             {
                 Console.WriteLine("The stack is so empty...");
-                return default(T);
+                return default;
+            }
+        }
+
+
+        private class StackIterator<T2> : IIterator<T2>
+        {
+            private T2[] values;
+
+            private int top { get; set; }
+
+            private int index = 0;
+
+            public StackIterator(T2[] values, int top)
+            {
+                this.values = values;
+                this.top = top;
+            }
+
+            public T2 GetNext()
+            {
+                return values[index++];
+            }
+
+            public bool HasMore()
+            {
+                if (index > top)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
         }
     }
+
 }

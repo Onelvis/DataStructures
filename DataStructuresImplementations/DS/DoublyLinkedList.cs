@@ -4,8 +4,11 @@ using System.Text;
 
 namespace DS
 {
-    class DoublyLinkedList
+    class DoublyLinkedList<T> : IIterable<T>
     {
-
+        public IIterator<T> GetIterator()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
