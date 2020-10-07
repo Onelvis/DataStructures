@@ -1,9 +1,9 @@
 # Data structures implementations in C#
-##Done
+## Done
 - Stack (Array based Stack)
 - LinkedQueue (LinkedList based Queue)
 
-#Pending
+# Pending
 - LinkedStack (LinkedList based Stack)
 - ArrayQueue (Arrat based Queue)
 - Binary Search Tree
