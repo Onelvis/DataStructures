@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DS
 {
-    public class Queue<T> : IIterable<T>
+    class MyLinkedList<T> : IIterable<T>
     {
         public IIterator<T> GetIterator()
         {
