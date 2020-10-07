@@ -6,6 +6,8 @@ namespace DS
 {
     public interface IQueue<T> : IIterable<T>
     {
-
+        void Enqueue(T value);
+        T Dequeue();
+        T Peek();
     }
 }
