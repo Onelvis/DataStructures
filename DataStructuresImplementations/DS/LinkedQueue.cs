@@ -8,7 +8,6 @@ namespace DS
 
         private Node<T> Front;
 
-        private T ReturnValue;
         public LinkedQueue() { }
 
         public void Enqueue(T value)
