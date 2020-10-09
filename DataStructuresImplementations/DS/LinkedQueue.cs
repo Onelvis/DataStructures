@@ -2,12 +2,13 @@
 
 namespace DS
 {
-    public class LinkedQueue<T> : IQueue<T>
+    public class LinkedQueue<T> : IQueue<T> 
     {
         private Node<T> Rear;
 
         private Node<T> Front;
 
+        private T ReturnValue;
         public LinkedQueue() { }
 
         public void Enqueue(T value)
@@ -64,6 +65,40 @@ namespace DS
         public IIterator<T> GetIterator()
         {
             return new LinkedQueueIterator<T>(this.Front);
+        }
+
+        public bool IsEmpty()
+        {
+            return Front == null;
+        }
+
+        public bool TryDequeue(out T ReturnValue)
+        {
+            if (IsEmpty())
+            {
+                ReturnValue = default;
+                return false;
+            }
+            else
+            {
+                ReturnValue = Front.Value;
+                Front = Front.Next;
+                return true;
+            }
+        }
+
+        public bool TryPeek(out T ReturnValue)
+        {
+            if (IsEmpty())
+            {
+                ReturnValue = default;
+                return false;
+            }
+            else
+            {
+                ReturnValue = Front.Value;
+                return true;
+            }
         }
 
         private class LinkedQueueIterator<N> : IIterator<N>
