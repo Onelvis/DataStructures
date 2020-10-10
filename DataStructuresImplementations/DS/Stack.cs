@@ -2,50 +2,50 @@
 
 namespace DS
 {
-    public class Stack<T> : IIterable<T>
+    public class Stack<T> : IStack<T>
     {
-        private int size { get; set; }
-        private T[] values { get; set; }
-        private int top { get; set; }
+        private int Size { get; set; }
+        private T[] Values { get; set; }
+        private int Top { get; set; }
 
         public IIterator<T> GetIterator()
         {
-            return new StackIterator<T>(values, top);
+            return new StackIterator<T>(Values, Top);
         }
 
         public Stack(int stackSize)
         {
-            size = stackSize;
-            values = new T[size];
-            top = -1;
+            Size = stackSize;
+            Values = new T[Size];
+            Top = -1;
         }
 
         public Stack()
         {
-            size = 16;
-            values = new T[size];
-            top = -1;
+            Size = 16;
+            Values = new T[Size];
+            Top = -1;
         }
 
-        public void Push(T pushed_value)
+        public void Push(T value)
         {
-            top++;
-            if (top > size)
+            Top++;
+            if (Top > Size)
             {
-                T[] newArray = new T[values.Length + 50];
-                values.CopyTo(newArray, 0);
-                values = newArray;
+                T[] newArray = new T[Values.Length + 50];
+                Values.CopyTo(newArray, 0);
+                Values = newArray;
             }
 
-            values[top] = pushed_value;
+            Values[Top] = value;
         }
 
         public T Pop()
         {
-            if (top > -1)
+            if (Top > -1)
             {
-                T value = values[top];
-                values[top--] = default(T);
+                T value = Values[Top];
+                Values[Top--] = default(T);
                 return value;
             }
             else
@@ -58,26 +58,26 @@ namespace DS
 
         private class StackIterator<T2> : IIterator<T2>
         {
-            private T2[] values;
+            private T2[] Values;
 
-            private int top { get; set; }
+            private int Top { get; set; }
 
-            private int index = 0;
+            private int Index = 0;
 
-            public StackIterator(T2[] values, int top)
+            public StackIterator(T2[] Values, int Top)
             {
-                this.values = values;
-                this.top = top;
+                this.Values = Values;
+                this.Top = Top;
             }
 
             public T2 GetNext()
             {
-                return values[index++];
+                return Values[Index++];
             }
 
             public bool HasMore()
             {
-                if (index > top)
+                if (Index > Top)
                 {
                     return false;
                 }
